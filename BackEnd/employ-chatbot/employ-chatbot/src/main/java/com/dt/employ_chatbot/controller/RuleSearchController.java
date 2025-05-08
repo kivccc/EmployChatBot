@@ -18,7 +18,7 @@ public class RuleSearchController {
     @PostMapping("/rule")
     public ResponseEntity<Mono<String>> search(@RequestBody KeyWordRequest request){
         log.info("Rule 검색 키워드 : "+request.getKeyword());
-        Mono<String> result=ruleSearchService.callRuleApi(request.getKeyword());
+        Mono<String> result=ruleSearchService.callRuleApi(request.getKeyword(), request.getPageNo());
         return ResponseEntity.ok(result);
     }
 }
